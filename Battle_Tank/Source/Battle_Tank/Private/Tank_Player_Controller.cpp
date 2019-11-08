@@ -2,10 +2,17 @@
 
 #include "Tank_Player_Controller.h"
 
+
+void ATank_Player_Controller::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	UE_LOG(LogTemp, Warning, TEXT("Player is ticking"));
+}
+
 void ATank_Player_Controller::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
 	auto ControlledTank = GetControlledTank();
 	if (!ControlledTank)
 	{
@@ -21,3 +28,4 @@ ATank*  ATank_Player_Controller::GetControlledTank() const
 {
 	return Cast<ATank>(GetPawn());
 }
+
